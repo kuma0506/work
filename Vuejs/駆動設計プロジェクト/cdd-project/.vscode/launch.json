@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderApplication<cdd-project>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "a.b.c.OrderApplication",
+            "projectName": "cdd-project",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-OrderApplication<cdd-project>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "a.b.c.interfaces.OrderApplication",
+            "projectName": "cdd-project",
+            "args": ""
+        }
+    ]
+}

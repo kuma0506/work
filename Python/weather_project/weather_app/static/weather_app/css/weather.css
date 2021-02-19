@@ -1,0 +1,191 @@
+/* div =======================================================*/
+/*===========================================================*/
+.div_1 {
+  width: 100rem;
+  height: 48rem;
+  background-color: #EEFFFF;
+  font-family: Nirmala UI Semilight;
+}
+.div_2 {
+  font-size: 15pt;
+  width: 40rem;
+  height: 2rem;
+  background-color: #FFFFFF;
+}
+.div_3 {
+  width: 60rem;
+  height: 40rem;
+  background-color: #FFFFFF;
+}
+.div_4 {
+  width: 30rem;
+}
+.div_5 {
+  padding-top: 10px;
+}
+.div_6 {
+  margin-left: 20px;
+}
+.div_7 {
+  font-size: 9.5pt;
+}
+.div_8 {
+  width: 115px;
+  height: 70px;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_9 {
+  position:relative;
+}
+.div_10 {
+  font-size: 13px;
+  padding-top: 8px;
+}
+.div_11 {
+  color: #555555;
+}
+.div_12 {
+  font-size: 15px;
+  background-color: #EEEEEE;
+  position:absolute;
+  bottom: 0;
+}
+.div_13 {
+  height: 35px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_14 {
+  width: 115px;
+  height: 44px;
+  background-color: #F0F8FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_15 {
+  position:relative;
+}
+.div_16 {
+  font-size: 13px;
+  padding-top: 8px;
+}
+.div_17 {
+  font-size: 15px;
+  background-color: #FFFFFF;
+  position: absolute;
+  bottom: 0;
+}
+.div_18 {
+  height: 40px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_19 {
+  width: 115px;
+  height: 80px;
+  background-color: #F0F8FF;
+  display: flex; justify-content: center;
+  align-items: center;
+}
+.div_20 {
+  font-size: 15px;
+  background-color: #FAFAFA;
+  position: absolute;
+  bottom: 0;
+}
+.div_21 {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_22 {
+  width: 115px;
+  height: 25px;
+  background-color: #F0F8FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_23 {
+  height: 25px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_24 {
+  width: 115px;
+  height: 30px;
+  background-color: #F0F8FF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div_25 {
+  height: 30px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* h* =======================================================*/
+/*===========================================================*/
+.h4_1{
+  color: #ff0000;
+}
+.h4_2{
+  color: blue;
+}
+.h5_1 {
+  margin-right: 10px;
+}
+/* p ========================================================*/
+/*===========================================================*/
+.p_1 {
+  color: #4e555b;
+  font-size: 10pt;
+  margin-top: 4px;
+}
+/* img =======================================================*/
+/*============================================================*/
+.img_1 {
+  width: 70px;
+}
+/* input ====================================================*/
+/*===========================================================*/
+/* 3時間ごと用 */
+.input_1 {
+  color: #FFFFFF;
+  background-color: #0099FF;
+  border-width:10px;
+  padding: 10px;
+}
+/* 6時間ごと用 */
+.input_2 {
+  color: #777777;
+  background-color: #FFFFFF;
+  border-width:10px;
+  padding: 10px;
+}
+button:focus {
+	outline:0;
+}
+/* 日時 =======================================================*/
+/*=============================================================*/
+.date_and_time_p {
+  width: 80px;
+  /* 中央寄せ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

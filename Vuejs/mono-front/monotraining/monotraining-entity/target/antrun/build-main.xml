@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <property name="maven.compile.classpath" refid="maven.compile.classpath" />
+    <ant antfile="C:\サブデスクトップ\Vuejs_Lesson\github\mono-front\monotraining\monotraining-entity/build.xml" />
+  </target>
+</project>

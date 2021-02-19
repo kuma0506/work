@@ -1,0 +1,95 @@
+<project xmlns:if="ant:if" xmlns:unless="ant:unless" name="sample" basedir="." default="install">
+
+  <condition property="mvn.cmd" value="${basedir}\mvnw.cmd" else="${basedir}\mvnw">
+    <os family="windows" />
+  </condition>
+
+  <exec executable="docker-compose" resultproperty="docker.ret" failifexecutionfails="false">
+    <arg line="version"/>
+  </exec>
+  
+  <condition property="docker.installed">
+    <equals arg1="${docker.ret}" arg2="0"/>
+  </condition>
+
+
+  <target name="install">
+
+    <antcall target="init-container"/>
+
+    <exec executable="${mvn.cmd}" failonerror="true">
+      <arg line="clean"/>
+    </exec>
+
+    <exec executable="${mvn.cmd}" failonerror="true">
+      <arg line="-f sample-migration -P migrate"/>
+    </exec>
+
+    <exec executable="${mvn.cmd}" failonerror="true">
+      <arg line="-f sample-entity -P reveng"/>
+    </exec>
+
+    <exec executable="${mvn.cmd}" failonerror="true">
+      <arg line="install"/>
+    </exec>
+
+    <antcall target="export-dbdoc"/>
+    
+  </target>
+  
+  
+  <target name="init-container" if="${docker.installed}">
+
+    <exec executable="${mvn.cmd}" failonerror="true">
+      <arg line="process-resources -N"/>
+    </exec>
+
+    <exec executable="docker-compose" failonerror="true">
+      <arg line="up -d"/>
+    </exec>
+
+  </target>
+
+  
+  <target name="export-dbdoc" if="${docker.installed}">
+
+    <exec executable="docker-compose" failonerror="true">
+      <arg line="up dbdoc"/>
+    </exec>
+
+  </target>
+  
+  
+  <target name="set-version">
+
+    <property name="version" value="1.0-SNAPSHOT"/>
+
+    <exec executable="${mvn.cmd}">
+      <arg line="versions:set -DnewVersion=${version} -DgenerateBackupPoms=false" />
+    </exec>
+
+    <exec executable="${mvn.cmd}">
+      <arg line="-f src/archetype" />
+      <arg line="versions:set -DnewVersion=${version} -DgenerateBackupPoms=false" />
+    </exec>
+
+    <replaceregexp file="README.md"
+                   match="-DarchetypeVersion=.* "
+                   replace="-DarchetypeVersion=${version} " />
+
+    <replaceregexp file="src/archetype/build.xml"
+                   match="-DarchetypeVersion=.*&quot;"
+                   replace="-DarchetypeVersion=${version}&quot;" />
+
+  </target>
+
+   <target name="translate-readme">
+    <exec executable="${mvn.cmd}" dir="${basedir}" failonerror="true">
+      <arg line="sit-bt:translate -Dbt.mode=en2ja" />
+      <arg value="-Dbt.target=&quot;README.md-&gt;README_ja.md&quot;" />
+    </exec>
+
+    <replace file="README_ja.md" token="【日本語】(README_ja.md)" value="[English](README.md)"/>
+  </target>
+
+</project>

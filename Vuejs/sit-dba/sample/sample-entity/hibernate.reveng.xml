@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering 
+  SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<!-- See also -->
+<!-- https://docs.jboss.org/tools/latest/en/hibernatetools/html/reverseengineering.html -->
+
+<hibernate-reverse-engineering>
+
+  <!-- This is sample, so remove after modifing DB schema. -->
+  <table-filter match-name="person" package="io.sitoolkit.dba.domain.persion"></table-filter>
+
+  <!--  Add your target tables and those entity packages. -->
+  <table-filter match-name="YOUR TABLE" package="YOUR PACKAGE OF ENTITY CLASS"></table-filter>
+
+</hibernate-reverse-engineering>

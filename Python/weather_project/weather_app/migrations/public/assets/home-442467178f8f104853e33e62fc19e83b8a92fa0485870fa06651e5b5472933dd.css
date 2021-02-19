@@ -1,0 +1,277 @@
+@charset "UTF-8";
+/* reset ================================ */
+/* line 5, app/assets/stylesheets/home.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 10, app/assets/stylesheets/home.scss */
+html {
+  font: 100%/1.5 'Avenir Next', 'Hiragino Sans', sans-serif;
+  line-height: 1.7;
+  letter-spacing: 1px;
+}
+
+/* line 19, app/assets/stylesheets/home.scss */
+ul, li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 27, app/assets/stylesheets/home.scss */
+a {
+  text-decoration: none;
+  color: #2d3133;
+  font-size: 14px;
+}
+
+/* line 35, app/assets/stylesheets/home.scss */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* line 39, app/assets/stylesheets/home.scss */
+input {
+  background-color: transparent;
+  outline-width: 0;
+}
+
+/* line 46, app/assets/stylesheets/home.scss */
+form input[type="submit"] {
+  border: none;
+  cursor: pointer;
+}
+
+/* 共通レイアウト ================================ */
+/* line 53, app/assets/stylesheets/home.scss */
+body {
+  color: #2d3133;
+  background-color: #3ecdc6;
+  margin: 0;
+  min-height: 1vh;
+}
+
+/* line 62, app/assets/stylesheets/home.scss */
+.main {
+  position: absolute;
+  top: 64px;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  background-color: #f5f8fa;
+}
+
+/* line 71, app/assets/stylesheets/home.scss */
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  clear: both;
+}
+
+/* ヘッダー ================================ */
+/* line 80, app/assets/stylesheets/home.scss */
+header {
+  height: 64px;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+}
+
+/* line 87, app/assets/stylesheets/home.scss */
+.header-logo {
+  float: left;
+  padding-left: 20px;
+  color: white;
+  font-size: 22px;
+  line-height: 64px;
+}
+
+/* line 96, app/assets/stylesheets/home.scss */
+.header-logo a {
+  color: white;
+  font-size: 22px;
+}
+
+/* line 101, app/assets/stylesheets/home.scss */
+.header-menus {
+  float: right;
+  padding-right: 20px;
+}
+
+/* line 107, app/assets/stylesheets/home.scss */
+.header-menus li {
+  float: left;
+  line-height: 64px;
+  font-size: 13px;
+  color: white;
+  padding-left: 15px;
+}
+
+/* line 115, app/assets/stylesheets/home.scss */
+.header-menus a {
+  float: left;
+  font-size: 13px;
+  color: white;
+}
+
+/* line 121, app/assets/stylesheets/home.scss */
+.header-menus .fa {
+  padding-right: 5px;
+}
+
+/* line 125, app/assets/stylesheets/home.scss */
+.header-menus input[type="submit"] {
+  padding: 0 20px;
+  float: left;
+  line-height: 64px;
+  color: white;
+  margin: 0;
+  font-size: 13px;
+}
+
+/* top ================================ */
+/* line 135, app/assets/stylesheets/home.scss */
+.top-main {
+  padding: 200px 0 100px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  color: white;
+  background-color: #3ecdc6;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  background-size: cover;
+  /* 背景画像の設定 */
+  background-image: url("/top.jpg");
+}
+
+/* line 156, app/assets/stylesheets/home.scss */
+.top-message {
+  position: relative;
+}
+
+/* line 161, app/assets/stylesheets/home.scss */
+.top-main h2 {
+  font-size: 70px;
+  font-weight: 500;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 20px;
+}
+
+/* line 171, app/assets/stylesheets/home.scss */
+.top-main p {
+  font-size: 24px;
+}
+
+/* about ================================ */
+/* line 176, app/assets/stylesheets/home.scss */
+.about-main {
+  padding: 180px 8% 0;
+  color: white;
+}
+
+/* line 181, app/assets/stylesheets/home.scss */
+.about-main h2 {
+  font-size: 64px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* line 187, app/assets/stylesheets/home.scss */
+.about-main p {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+/* line 192, app/assets/stylesheets/home.scss */
+.about-img {
+  width: 84%;
+}
+
+/* フォーム================================ */
+/* line 197, app/assets/stylesheets/home.scss */
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+/* line 204, app/assets/stylesheets/home.scss */
+.form-heading {
+  font-weight: 300;
+  margin: 60px 0 20px;
+  font-size: 48px;
+  color: #bcc8d4;
+}
+
+/* line 211, app/assets/stylesheets/home.scss */
+.form-body {
+  padding: 30px;
+}
+
+/* line 215, app/assets/stylesheets/home.scss */
+.form-error {
+  color: #ff4d75;
+}
+
+/* line 219, app/assets/stylesheets/home.scss */
+.form input {
+  width: 100%;
+  border: 1px solid #d8dadf;
+  padding: 10px;
+  color: #57575f;
+  font-size: 16px;
+  letter-spacing: 2px;
+  border-radius: 2px;
+}
+
+/* line 229, app/assets/stylesheets/home.scss */
+.form textarea {
+  width: 100%;
+  min-height: 110px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+/* line 236, app/assets/stylesheets/home.scss */
+.form input[type="submit"] {
+  background-color: #3ecdc6;
+  color: white;
+  cursor: pointer;
+  font-weight: 300;
+  width: 120px;
+  border-radius: 2px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  float: right;
+}
+
+/* line 248, app/assets/stylesheets/home.scss */
+.form-body:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* フラッシュ ================================ */
+/* line 255, app/assets/stylesheets/home.scss */
+.flash {
+  padding: 10px 0;
+  color: white;
+  background: #fbaa58;
+  text-align: center;
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+  width: 100%;
+  border-radius: 0 0 2px 2px;
+  font-size: 14px;
+}

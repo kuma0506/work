@@ -1,0 +1,42 @@
+{% extends 'weather_app/base.html' %}
+{% block content %}
+    <center>
+        <div class="card container my-3" style="width: 100rem; height: 45rem; background-color: #EEFFFF; font-family: Nirmala UI Semilight";>
+            <h1 class="my-3">Weather Forecast</h1>
+            <form action="{% url 'weather_app:search' %}" method="post">
+                <div class="input-group my-3" style="width: 500px;">
+                    <select id="kenpo" style="width: 400px;" name="CountryId">
+                        {% for Country in Countries%}
+                            <option value="{{ Country.id }}">{{ Country.CountryName_Ja }}</option>
+                        {% endfor %}
+                    </select>
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-secondary" id="btn">〇</button>
+	                </span>
+                </div>
+                {% csrf_token %}
+            </form>
+            <div class="card container my-4" style="width: 58rem; height: 40rem; background-color: #AAAAAA;">
+                <h1 class="my-3" style="color: #FFFFFF;">{{ today }}</h1>
+                {% for weather_info in weather_infos %}
+                    <ul class="text-left my-3" style="padding:4px; list-style: none; font-size: 20px; background-color: #FFFFFF; height: 3.5rem;">
+                        <li style="display: flex; text-align: center; position: relative; ">
+                            <form action="{% url 'weather_app:search' %}" method="post">
+                                <input type="hidden" value="{{ weather_info.country_id }}" name="CountryId"}  >
+                                <button type="submit" class="border border-secondary rounded" style="background-color: #FFFFFF ;width: 20rem; padding: 9px; margin-right: 50px;">{{ weather_info.city }}</button>
+                                {% csrf_token %}
+                            </form>
+                            <img src="http://openweathermap.org/img/w/{{ weather_info.icon }}.png" style="margin-right: 50px;" alt="Image">
+                            <div style="height: 3rem; font-size: 28px; display: flex; position: absolute; right: 0px; display: flex; justify-content: center; align-items: center;">
+                                <div style="color: #ff0000;">{{ weather_info.temperature_max }}</div>
+                                <div style="">&nbsp;|&nbsp;</div>
+                                <div style="color: blue; margin-right: 50px;">{{ weather_info.temperature_min }}</div>
+                                <div style="margin-right: 30px;">{{ weather_info.humidity }}%</div>
+                            </div>
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </center>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "cms/base.html" %}
+{% load bootstrap4 %}
+
+{% block title %}書籍の編集{% endblock title %}
+
+{% block content %}
+    <h4 class="mt-4 mb-5 border-bottom">書籍の編集</h4>
+    <!-- 「book_id」がTrueの場合は修正、Falseの場合は新規登録-->
+    {% if book_id %}
+    <!-- 修正 -->　　　
+    <form action="{% url 'cms:book_mod' book_id=book_id %}" method="post">
+    {% else %}
+    <!-- 新規登録 -->
+    <form action="{% url 'cms:book_add' %}" method="post">
+    {% endif %}
+      <!-- 「csrf_token」はクロスサイトリクエストフォージェリ（シーサーフ）の対策 -->
+      {% csrf_token %}
+　　　 <!-- 「bootstrap_form」は2行目がないと動作しない -->　　　
+      {% bootstrap_form form layout='horizontal' %}
+     <!-- 「form-group」でフォームをグループ化する -->
+     <!-- 「row」を設定することで「col-md*」が使用できる -->
+      <div class="form-group row">
+        <!-- 「offset-md-3」で左からグリット3つ分の空白を作る -->
+        <!-- 「col-md-9」　　カラムのサイズをグリット9つ分にする -->
+        <!-- 　※「md*」はレスポンシブデザインを考慮し合計12で設定する。そうすることでデバイスに合わせた比率で表示される -->
+        <div class="offset-md-3 col-md-9">
+          <button type="submit" class="btn btn-primary">送信</button>
+        </div>
+      </div>
+    </form>
+    <a href="{% url 'cms:book_list' %}" class="btn btn-secondary btn-sm">戻る</a>
+{% endblock content %}

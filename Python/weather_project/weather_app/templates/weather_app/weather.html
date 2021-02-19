@@ -1,0 +1,190 @@
+{% extends 'weather_app/base.html' %}
+{% block title %}
+現在の天気
+{% endblock %}
+{% block content %}
+    <div class="card container my-3 div_1";>
+        <div class="card my-4 div_2">
+            <p>Weather Forecast > <a href="{% url 'weather_app:index'%}">{{ city_weather.city }}</a></p>
+        </div>
+        <div class="card container my-1 py-4 div_3">
+            <h3 class="border border-grey rounded mx-auto text-center div_4" id="cityid">{{ city_weather.city }}</h3>
+            <div class="card container flex-row border-0 py-3">
+                <div class="card container">
+                    <div class="text-center d-flex justify-content-center div_5">
+                        <h5 class="font-weight-bold h5_1">きょう</h5>
+                        <p class="p_1">{{ city_weather.days_0 }}</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <img src="http://openweathermap.org/img/w/{{ city_weather.icon_0 }}.png" alt="Image" class="img_1">
+                        <div class="div_6">
+                            <div class="d-flex justify-content-lg-end">
+                                <h4 class="h4_1">{{ city_weather.temperature_max_0 }}</h4>
+                                <h4>&nbsp;|&nbsp;</h4>
+                                <h4 class="h4_2">{{ city_weather.temperature_min_0 }}</h4>
+                            </div>
+                            <h5 class="text-center">{{ city_weather.humidity_0 }}%</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card container">
+                    <div class="text-center d-flex justify-content-center div_5">
+                        <h5 class="font-weight-bold h5_1">あす</h5>
+                        <p class="p_1">{{ city_weather.days_1 }}</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <img src="http://openweathermap.org/img/w/{{ city_weather.icon_1 }}.png" alt="Image" class="img_1">
+                        <div class="div_6">
+                            <div class="d-flex justify-content-lg-end">
+                                <h4 class="h4_1">{{ city_weather.temperature_max_1 }}</h4>
+                                <h4>&nbsp;|&nbsp;</h4>
+                                <h4 class="h4_2">{{ city_weather.temperature_min_1 }}</h4>
+                            </div>
+                            <h5 class="text-center">{{ city_weather.humidity_1 }}%</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="card container">
+                    <div class="text-center d-flex justify-content-center div_5">
+                        <h5 class="font-weight-bold h5_1">あさって</h5>
+                        <p class="p_1">{{ city_weather.days_2 }}</p>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <img src="http://openweathermap.org/img/w/{{ city_weather.icon_2 }}.png" alt="Image" class="img_1">
+                        <div class="div_6">
+                            <div class="d-flex justify-content-lg-end">
+                                <h4 class="h4_1">{{ city_weather.temperature_max_2 }}</h4>
+                                <h4>&nbsp;|&nbsp;</h4>
+                                <h4 class="h4_2">{{ city_weather.temperature_min_2 }}</h4>
+                            </div>
+                            <h5 class="text-center">{{ city_weather.humidity_2 }}%</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center py-4" style="font-size: 14pt;">
+                <button type="submit" id="Every_3_hours" class="border border-grey rounded mx-auto text-center input_1" value="{{ city_weather.cityid }}">3時間ごとの予報</button>
+                <button type="submit" id="Every_6_hours" class="border border-grey rounded mx-auto text-center input_2" value="{{ city_weather.cityid }}">6時間ごとの予報</button>
+            </div>
+            <div class="div_7">
+                <div class="d-flex justify-content-lg-left">
+                    <div class="border border-white div_8">
+                        日時
+                    </div>
+                    <div class="d-flex flex-row div_9">
+                        <div class="div_10">
+                            <div class="d-flex flex-row div_11">
+                                <p class="date_and_time_p" id="days_01">{{ weather_after_Three_hours.days_01 }}</p>
+                                <p class="date_and_time_p" id="days_02">{{ weather_after_Three_hours.days_02 }}</p>
+                                <p class="date_and_time_p" id="days_03">{{ weather_after_Three_hours.days_03 }}</p>
+                                <p class="date_and_time_p" id="days_04">{{ weather_after_Three_hours.days_04 }}</p>
+                                <p class="date_and_time_p" id="days_05">{{ weather_after_Three_hours.days_05 }}</p>
+                                <p class="date_and_time_p" id="days_06">{{ weather_after_Three_hours.days_06 }}</p>
+                                <p class="date_and_time_p" id="days_07">{{ weather_after_Three_hours.days_07 }}</p>
+                                <p class="date_and_time_p" id="days_08">{{ weather_after_Three_hours.days_08 }}</p>
+                                <p class="date_and_time_p" id="days_09">{{ weather_after_Three_hours.days_09 }}</p>
+                                <p class="date_and_time_p" id="days_10">{{ weather_after_Three_hours.days_10 }}</p>
+                            </div>
+                            <div class="d-flex flex-row div_12">
+                                <div class="border border-white div_13" id="times_01">{{ weather_after_Three_hours.times_01 }}</div>
+                                <div class="border border-white div_13" id="times_02">{{ weather_after_Three_hours.times_02 }}</div>
+                                <div class="border border-white div_13" id="times_03">{{ weather_after_Three_hours.times_03 }}</div>
+                                <div class="border border-white div_13" id="times_04">{{ weather_after_Three_hours.times_04 }}</div>
+                                <div class="border border-white div_13" id="times_05">{{ weather_after_Three_hours.times_05 }}</div>
+                                <div class="border border-white div_13" id="times_06">{{ weather_after_Three_hours.times_06 }}</div>
+                                <div class="border border-white div_13" id="times_07">{{ weather_after_Three_hours.times_07 }}</div>
+                                <div class="border border-white div_13" id="times_08">{{ weather_after_Three_hours.times_08 }}</div>
+                                <div class="border border-white div_13" id="times_09">{{ weather_after_Three_hours.times_09 }}</div>
+                                <div class="border border-white div_13" id="times_10">{{ weather_after_Three_hours.times_10 }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-lg-left">
+                    <div class="border border-white div_14">
+                        天気
+                    </div>
+                    <div class="d-flex flex-row div_15">
+                        <div class="div_16">
+                            <div class="d-flex flex-row div_17">
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_01 }}.png" alt="Image" style="width: 50px;" id="icon_01"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_02 }}.png" alt="Image" style="width: 50px;" id="icon_02"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_03 }}.png" alt="Image" style="width: 50px;" id="icon_03"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_04 }}.png" alt="Image" style="width: 50px;" id="icon_04"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_05 }}.png" alt="Image" style="width: 50px;" id="icon_05"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_06 }}.png" alt="Image" style="width: 50px;" id="icon_06"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_07 }}.png" alt="Image" style="width: 50px;" id="icon_07"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_08 }}.png" alt="Image" style="width: 50px;" id="icon_08"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_09 }}.png" alt="Image" style="width: 50px;" id="icon_09"></div>
+                                <div class="border border-white div_18"><img src="http://openweathermap.org/img/w/{{ weather_after_Three_hours.icon_10 }}.png" alt="Image" style="width: 50px;" id="icon_10"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-lg-left">
+                    <div class="border border-white div_19">
+                        気温（℃）
+                    </div>
+                    <div class="d-flex flex-row div_15">
+                        <div class="div_16">
+                            <div class="d-flex flex-row div_20">
+                                <div class="border border-white div_21" id="temp_01">{{ weather_after_Three_hours.temp_01 }}</div>
+                                <div class="border border-white div_21" id="temp_02">{{ weather_after_Three_hours.temp_02 }}</div>
+                                <div class="border border-white div_21" id="temp_03">{{ weather_after_Three_hours.temp_03 }}</div>
+                                <div class="border border-white div_21" id="temp_04">{{ weather_after_Three_hours.temp_04 }}</div>
+                                <div class="border border-white div_21" id="temp_05">{{ weather_after_Three_hours.temp_05 }}</div>
+                                <div class="border border-white div_21" id="temp_06">{{ weather_after_Three_hours.temp_06 }}</div>
+                                <div class="border border-white div_21" id="temp_07">{{ weather_after_Three_hours.temp_07 }}</div>
+                                <div class="border border-white div_21" id="temp_08">{{ weather_after_Three_hours.temp_08 }}</div>
+                                <div class="border border-white div_21" id="temp_09">{{ weather_after_Three_hours.temp_09 }}</div>
+                                <div class="border border-white div_21" id="temp_10">{{ weather_after_Three_hours.temp_10 }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-lg-left">
+                    <div class="border border-white div_22">
+                        湿度（％）
+                    </div>
+                    <div class="d-flex flex-row div_15">
+                        <div class="div_16">
+                            <div class="d-flex flex-row div_17">
+                                <div class="border border-white div_23" id="humidity_01">{{ weather_after_Three_hours.humidity_01 }}</div>
+                                <div class="border border-white div_23" id="humidity_02">{{ weather_after_Three_hours.humidity_02 }}</div>
+                                <div class="border border-white div_23" id="humidity_03">{{ weather_after_Three_hours.humidity_03 }}</div>
+                                <div class="border border-white div_23" id="humidity_04">{{ weather_after_Three_hours.humidity_04 }}</div>
+                                <div class="border border-white div_23" id="humidity_05">{{ weather_after_Three_hours.humidity_05 }}</div>
+                                <div class="border border-white div_23" id="humidity_06">{{ weather_after_Three_hours.humidity_06 }}</div>
+                                <div class="border border-white div_23" id="humidity_07">{{ weather_after_Three_hours.humidity_07 }}</div>
+                                <div class="border border-white div_23" id="humidity_08">{{ weather_after_Three_hours.humidity_08 }}</div>
+                                <div class="border border-white div_23" id="humidity_09">{{ weather_after_Three_hours.humidity_09 }}</div>
+                                <div class="border border-white div_23" id="humidity_10">{{ weather_after_Three_hours.humidity_10 }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-lg-left">
+                    <div class="border border-white div_24">
+                        風（m/s）
+                    </div>
+                    <div class="d-flex flex-row div_15">
+                        <div class="div_16">
+                            <div class="d-flex flex-row div_20">
+                                <div class="border border-white div_25" id="speed_01">{{ weather_after_Three_hours.speed_01 }}</div>
+                                <div class="border border-white div_25" id="speed_02">{{ weather_after_Three_hours.speed_02 }}</div>
+                                <div class="border border-white div_25" id="speed_03">{{ weather_after_Three_hours.speed_03 }}</div>
+                                <div class="border border-white div_25" id="speed_04">{{ weather_after_Three_hours.speed_04 }}</div>
+                                <div class="border border-white div_25" id="speed_05">{{ weather_after_Three_hours.speed_05 }}</div>
+                                <div class="border border-white div_25" id="speed_06">{{ weather_after_Three_hours.speed_06 }}</div>
+                                <div class="border border-white div_25" id="speed_07">{{ weather_after_Three_hours.speed_07 }}</div>
+                                <div class="border border-white div_25" id="speed_08">{{ weather_after_Three_hours.speed_08 }}</div>
+                                <div class="border border-white div_25" id="speed_09">{{ weather_after_Three_hours.speed_09 }}</div>
+                                <div class="border border-white div_25" id="speed_10">{{ weather_after_Three_hours.speed_10 }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

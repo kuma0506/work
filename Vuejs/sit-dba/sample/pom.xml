@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+  <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+  </parent>
+  
+  <!-- The Basics -->
+  <groupId>sample</groupId>
+  <artifactId>mono-training</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+        
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${db.jdbc.groupId}</groupId>
+        <artifactId>${db.jdbc.artifactId}</artifactId>
+        <version>${db.jdbc.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <properties>
+    <admin.port>80</admin.port>
+              
+    <db.jdbc.groupId>org.postgresql</db.jdbc.groupId>
+    <db.jdbc.artifactId>postgresql</db.jdbc.artifactId>
+    <db.jdbc.version>42.2.8</db.jdbc.version>
+    <db.jdbc.driver>org.postgresql.Driver</db.jdbc.driver>
+    <db.name>postgres</db.name>
+    <db.host>localhost</db.host>
+    <db.port>5432</db.port>
+    <db.jdbc.url>jdbc:postgresql://${db.host}:${db.port}/${db.name}?currentSchema=${db.schema}</db.jdbc.url>
+    <db.username>postgres</db.username>
+    <db.password>19940506</db.password>
+    <db.schema>${project.parent.artifactId}</db.schema>
+    <schemaspy.db.type>pgsql</schemaspy.db.type>
+                
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+                
+    <flyway.version>6.0.4</flyway.version>
+                
+    <ant.target>install</ant.target>
+    <antfile>build.xml</antfile>
+  </properties>
+        
+  
+  <!-- Build Settings -->
+  <build>
+                
+    <defaultGoal>antrun:run</defaultGoal>
+                
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>schemaspy.properties</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>.env</include>
+        </includes>
+        <targetPath>${project.basedir}</targetPath>
+      </resource>
+    </resources>
+                
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <inherited>false</inherited>
+        <configuration>
+          <target>
+            <ant antfile="${antfile}" target="${ant.target}"/>
+          </target>
+        </configuration>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>io.sitoolkit.bt</groupId>
+        <artifactId>sit-bt-maven-plugin</artifactId>
+        <version>0.9-SNAPSHOT</version>
+      </plugin>
+    </plugins>
+                
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.8</version>
+          <inherited>false</inherited>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.ant</groupId>
+              <artifactId>ant</artifactId>
+              <version>1.10.9</version>
+            </dependency>
+            <dependency>
+              <groupId>ant-contrib</groupId>
+              <artifactId>ant-contrib</artifactId>
+              <version>1.0b3</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+  <modules>
+    <module>sample-migration</module>
+    <module>sample-entity</module>
+    <module>sample-spring</module>
+  </modules>
+</project>

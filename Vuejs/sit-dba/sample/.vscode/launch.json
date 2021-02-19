@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MonoBackApplication<mono-back>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.example.monoback.MonoBackApplication",
+            "projectName": "mono-back",
+            "args": ""
+        }
+    ]
+}

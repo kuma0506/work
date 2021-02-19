@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+  <h1>オンラインストア</h1>
+  <table>
+    <form method="post" th:action="@{/shop}" th:object="${indexForm}">
+      <tr>
+        <td>
+          <label>商品：
+            <select>
+              <option th:each="product : ${productlist}" th:text="${product.getProductName}"></option>
+            </select>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td><label>住所:<input type="text" placeholder="住所"></label></td>
+      </tr>
+      <tr>
+        <td>
+          <label>支払方法:
+            <select name="" id="">
+              <option value="0">クレジットカード</option>
+              <option value="1">代金引換</option>
+            </select>
+          </label>  
+        </td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="注文確定"></td>
+      </tr>
+    </form>
+  </table>
+</body>
+</html>
