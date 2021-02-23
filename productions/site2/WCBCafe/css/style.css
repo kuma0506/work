@@ -102,7 +102,8 @@ img {
 /* 記事部分
 ----------------------------------------*/
 article {
-    width: 74%;
+    width: 60%;
+    order: 2; /* 順序２ */
 }
 article img {
     margin-bottom: 20px;
@@ -112,9 +113,13 @@ article p {
 }
 aside {
     width: 22%;
+    order: 3; /* 順序３ */
 }
 aside p {
     padding: 12px 10px;
+}
+.ad {
+    order: 1; /* 順序１ */
 }
 .news-contents {
     display: flex;
@@ -186,4 +191,209 @@ footer {
 footer p {
     color: #FFF;
     font-size: 0.875rem;
+}
+/* MENU
+----------------------------------------*/
+#menu {
+    background-image: url(../images/menu-bg.jpg);
+    min-height: 100vh;
+}
+.menu-content {
+    max-width: 560px;
+    margin-top: 10%;
+}
+.menu-content .page-title {
+    text-align: center;
+}
+.menu-content p {
+    font-size: 1.125rem;
+    margin: 10px 0 0;
+}
+.grid {
+    display: grid;
+    gap: 26px; /*要素同士の余白*/
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /*最低width:240pxでauto-fit（画面が見切れない箇所まで繰り返す）*/
+    margin-top:  6%;
+    margin-bottom: 50px;
+}
+.big-box {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+.big-box img {
+    height: 94%;
+    width: 100%;
+    object-fit: cover; /* imgトリミング */ 
+}
+/* CONTACT 
+----------------------------------------*/
+#contact {
+    background-image: url(../images/contact-bg.jpg);
+    min-height: 100vh;
+}
+/* フォーム */
+form div {
+    margin-bottom: 14px;
+}
+label {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+    display: block;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    background: rgba(255, 255, 255, .5); /* 半透明 */
+    border: 1px #fff solid;
+    border-radius: 5px;  /* 角丸める */
+    padding: 10px;
+    font-size: 1rem;
+}
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    max-width: 240px;
+}
+textarea {
+    width: 100%;
+    max-width: 480px;
+    height: 6rem;
+}
+input[type="submit"] {
+    border: none;
+    cursor: pointer; /* ボタンフォーカス時、手型ポインターになる */
+    line-height: 1;
+}
+/* 店舗情報・地図 */
+#location {
+    padding: 4% 0;
+}
+#location .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.location-info {
+    width: 22%;
+}
+.location-info p {
+    padding: 12px 10px;
+}
+.location-map {
+    width: 74%;
+}
+/* iframe */
+iframe {
+    width: 100%;  /* 100%を指定することではみ出さない */
+}
+/* SNS */
+#sns {
+    background: #FAF7F0;
+    padding: 4% 0;
+}
+#sns .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+#sns .sub-title {
+    margin-bottom: 30px;
+}
+.sns-box {
+    width: 30%;
+}
+
+/* モバイル版
+----------------------------------------*/
+@media (max-width: 600px) {
+    h1 {
+        color: #0bd;
+    }
+    .page-title {
+        font-size: 2.5rem;
+    }
+    /* HEADER */
+    .main-nav {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .main-nav li {
+        margin: 0 20px;
+    }
+    /* HOME */
+    .home-content {
+        margin-top: 20%;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* NEWS */
+    .news-contents {
+        flex-direction: column; /* 子要素を上から順に表示する */
+    }
+    article,
+    aside {
+        width: 100%;
+    }
+    #news .page-title {
+        margin-top: 30px;
+    }
+    aside {
+        margin-top: 60px;
+    }
+    .post-info {
+        margin-bottom:  30px;
+    }
+    .post-date {
+        width: 70px;
+        height: 70px;
+        font-size: 1rem;
+    }
+    .post-date span {
+        font-size:  0.875rem;
+        padding-top: 2px;
+    }
+    .post-title {
+        font-size: 1.375rem;
+    }
+    .post-cat {
+        font-size: 0.875rem;
+        margin-top: 10px;
+    }
+    .post-title,
+    .post-cat {
+        margin-left: 80px;
+    }
+    /* MENU */
+    .menu-content {
+        margin-top: 20%;
+    }
+    .big-box {
+        grid-column: auto;
+        grid-row: auto;
+    }
+    .big-box img {
+        height: auto;
+    }
+    /* CONTACT */
+    #contact .page-title {
+        margin-top: 40px;
+    }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        max-width: 100%;
+    }
+    /* 店舗情報・地図 / SNS */
+    #location .wrapper,
+    #sns .wrapper {
+        flex-direction: column;
+    }
+    .location-info,
+    .location-map,
+    .sns-box {
+        width: 100%;
+    }
+    .sns-box {
+        margin-bottom: 30px;
+    }
 }
