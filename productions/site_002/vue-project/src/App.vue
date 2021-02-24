@@ -1,36 +1,22 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">PEEK</router-link>｜
-      <router-link to="/">DESIGN</router-link>｜
-      <router-link to="/">STORY</router-link>｜
-      <router-link to="/">TUTORIAL</router-link>｜
-      <router-link to="/">FAQ</router-link>｜
-      <router-link to="/">PRESS KIT</router-link>
+  <v-app>
+    <div id="app">
+      <router-view/>
     </div>
-    <router-view/>
-  </div>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from 'vue';
 
-#nav {
-  padding: 30px;
+export default Vue.extend({
+  name: 'App',
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  components: {
+  },
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+  data: () => ({
+    //
+  }),
+});
+</script>
