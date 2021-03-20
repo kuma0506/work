@@ -1,0 +1,3 @@
+com\photo\infra\jpa\BaseEntity.class
+com\photo\entity\infra\jpa\CustomReverseEngineeringStrategy.class
+com\photo\infra\jpa\BaseEntityListener.class
